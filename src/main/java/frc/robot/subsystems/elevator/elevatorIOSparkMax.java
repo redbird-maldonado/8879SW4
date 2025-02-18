@@ -41,8 +41,8 @@ public class elevatorIOSparkMax implements elevatorIO {
         //.encoder.positionConversionFactor(360d * ABSOLUTE_DEGREES_PER_RELATIVE_DEGREES / 762.183 * METERS_ASCENDED_PER_ROTATION)
     SparkMaxConfig followConfig = new SparkMaxConfig();
       followConfig
-        .inverted(true)
-        .follow(15)
+        // .inverted(true)
+        .follow(15, true)
         .smartCurrentLimit(50)
         .idleMode(IdleMode.kBrake);
 

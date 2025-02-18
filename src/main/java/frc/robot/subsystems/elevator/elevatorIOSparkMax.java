@@ -19,6 +19,7 @@ public class elevatorIOSparkMax implements elevatorIO {
   private final SparkMax leadMotor;
   public final SparkMax followerMotor;
   private final RelativeEncoder leadEncoder;
+  private final RelativeEncoder followerEncoder;
   public final SparkClosedLoopController leadPIDController;
 
   // Constructor
@@ -28,6 +29,7 @@ public class elevatorIOSparkMax implements elevatorIO {
     followerMotor = new SparkMax(16, MotorType.kBrushless);
 
     leadEncoder = leadMotor.getEncoder(); // only need this bc other motor follows
+    followerEncoder = followerMotor.getEncoder();
     
     this.leadPIDController = this.leadMotor.getClosedLoopController();
 
@@ -63,7 +65,11 @@ public class elevatorIOSparkMax implements elevatorIO {
     // followerMotor.burnFlash();
     leadMotor.configure(leadConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
+    followerMotor.configure(followConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
     leadEncoder.setPosition(0);
+
+    followerEncoder.setPosition(0);
   }
 
   // IF we want to add limit switches, this is the stuff

@@ -35,16 +35,18 @@ public class elevatorIOSparkMax implements elevatorIO {
 
     SparkMaxConfig leadConfig = new SparkMaxConfig();
       leadConfig
+        .inverted(true) //Inverting lead motor because positive makes elevator go down
         .smartCurrentLimit(50)
         .idleMode(IdleMode.kBrake)
         // .voltageCompensation(12); // limit controller max V; can adjust if nec.
         .encoder.positionConversionFactor(Constants.kElevatorPositionFactor)
                 .velocityConversionFactor(Constants.kElevatorVelocityFactor);
+
         //.encoder.positionConversionFactor(360d * ABSOLUTE_DEGREES_PER_RELATIVE_DEGREES / 762.183 * METERS_ASCENDED_PER_ROTATION)
     SparkMaxConfig followConfig = new SparkMaxConfig();
       followConfig
         // .inverted(true)
-        .follow(15, true)
+        .follow(15, false)
         .smartCurrentLimit(50)
         .idleMode(IdleMode.kBrake);
 

@@ -6,8 +6,9 @@ public class Constants {
     public static final double kElevatorPositionFactor = kElevatorGearRatio * 2.0 * Math.PI;
     public static final double kElevatorVelocityFactor = kElevatorPositionFactor / 60.0;
 
-    public static final double L1_HEIGHT = 3;
-    public static final double L2_HEIGHT = 5.5;
-    public static final double L3_HEIGHT = 21.5;
-    public static final double L4_HEIGHT = 52.5;
+    public static final double L0_HEIGHT = 0; // dpad down no zero on their code; i just added this;
+    public static final double L1_HEIGHT = 5; // 3;
+    public static final double L2_HEIGHT = 12; // 5.5;
+    public static final double L3_HEIGHT = 15; // 21.5;
+    public static final double L4_HEIGHT = 17; // 52.5; too high!!!
 }

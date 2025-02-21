@@ -45,8 +45,7 @@ public class elevatorIOSparkMax implements elevatorIO {
         //.encoder.positionConversionFactor(360d * ABSOLUTE_DEGREES_PER_RELATIVE_DEGREES / 762.183 * METERS_ASCENDED_PER_ROTATION)
     SparkMaxConfig followConfig = new SparkMaxConfig();
       followConfig
-        // .inverted(true)
-        .follow(15, false)
+        .follow(15, true) // OKAY, SO... the lead motor is inverted ON PURPOSE.  The follower also gets inverted ON PURPOSE (they have to be in phase/sync).
         .smartCurrentLimit(50)
         .idleMode(IdleMode.kBrake);
 
